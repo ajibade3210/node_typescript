@@ -2,13 +2,17 @@ import { RequestHandler } from "express";
 import NoteModel from "../models/note";
 import createHttpError from "http-errors";
 import mongoose from "mongoose";
-import { CreateNoteBody, UpdateNoteBody, UpdateNoteParams } from "../types/notes";
+import {
+  CreateNoteBody,
+  UpdateNoteBody,
+  UpdateNoteParams,
+} from "../types/notes";
 
 export const getNotes: RequestHandler = async (req, res, next) => {
   try {
     // throw Error("Baing...");
     const notes = await NoteModel.find().exec();
-    return res.status(200).send({ notes });
+    return res.status(200).send(notes);
   } catch (error) {
     return next(error);
   }

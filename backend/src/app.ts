@@ -2,10 +2,12 @@ import "dotenv/config";
 import express from "express";
 import { noteRouter } from "./routes";
 import morgan from "morgan";
+import cors from "cors";
 import { errorHandler, unknownRoute } from "./middleware";
 const app = express();
 
 app.use(morgan("dev"));
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/notes", noteRouter);

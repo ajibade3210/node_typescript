@@ -51,3 +51,8 @@ npm i envalid
 To specify the type of req.body you are expecting you need to declare an interface we can declare a type. But interface is better in this scenerio.
 
 Status Code 204 does not return a response body.
+
+## Setup frontend
+```bash
+npx create-react-app frontend --template typescript
+```
